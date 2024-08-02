@@ -35,20 +35,18 @@ class _OtpScreenState extends State<OtpScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
                   keyboardType: TextInputType.number,
-                  maxLength: 8,
+                  maxLength: 5,
                   decoration: InputDecoration(
-                    hintText: 'OTP *',
-                    fillColor: Colors.white.withOpacity(0.7),
-                    filled: true,
-                    border: const OutlineInputBorder(),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
+                    labelText: 'Mobile Number',
                     prefixIcon: const Icon(Icons.lock, color: Colors.blue),
-                    counterText: '',
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    hintStyle: TextStyle(color: Colors.blue),
                   ),
                 ),
               ),
