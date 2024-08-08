@@ -17,37 +17,35 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             children: [
               FieldRetailer(),
-              SizedBox(height: 20),
-              SizedBox(height: 6),
+              const SizedBox(height: 8),
               FieldName(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldAddress(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldTaluk(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldDistrict(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldCity(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldState(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldPinCode(),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               FieldGSTIN(),
-              SizedBox(height: 16),
+              const SizedBox(height: 8),
               FieldTermsAndConditions(),
-              SizedBox(height: 16),
-              FieldNewPassword(),
-              SizedBox(height: 16),
+              const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
                   // TODO: Implement submit functionality
                 },
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                   backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white
                 ),
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
             ],
           ),
@@ -63,7 +61,20 @@ class FieldRetailer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Retailer'), // Replace with actual implementation
+      child: const TextField(
+        decoration: InputDecoration(
+          labelText: 'Retailer',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintStyle: TextStyle(color: Colors.blue),
+        ),
+        keyboardType: TextInputType.text,
+      ), // Replace with actual implementation
     );
   }
 }
@@ -72,7 +83,20 @@ class FieldName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Name'), // Replace with actual implementation
+      child: const TextField(
+        decoration: InputDecoration(
+          labelText: 'Name',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintStyle: TextStyle(color: Colors.blue),
+        ),
+        keyboardType: TextInputType.text,
+      ), // Replace with actual implementation
     );
   }
 }
@@ -81,79 +105,253 @@ class FieldAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Address'), // Replace with actual implementation
+      child: const TextField(
+        decoration: InputDecoration(
+          labelText: 'Address',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintStyle: TextStyle(color: Colors.blue),
+        ),
+        keyboardType: TextInputType.text,
+      ), // Replace with actual implementation
     );
   }
 }
 
-class FieldTaluk extends StatelessWidget {
+class FieldTaluk extends StatefulWidget {
+  @override
+  _FieldTalukState createState() => _FieldTalukState();
+}
+
+class _FieldTalukState extends State<FieldTaluk> {
+  String? selectedTaluk;
+  List<String> taluks = ['Mandya', 'Maddur', 'Malavalli', 'Mysore'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Taluk'), // Replace with actual implementation
+      child: DropdownButtonFormField<String>(
+        decoration: const InputDecoration(
+          labelText: 'Select Taluk',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+        value: selectedTaluk,
+        items: taluks.map((String taluk) {
+          return DropdownMenuItem<String>(
+            value: taluk,
+            child: Text(taluk),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedTaluk = newValue;
+          });
+        },
+      ),
     );
   }
 }
 
-class FieldDistrict extends StatelessWidget {
+class FieldDistrict extends StatefulWidget {
+  @override
+  _FieldDistrictState createState() => _FieldDistrictState();
+}
+
+class _FieldDistrictState extends State<FieldDistrict> {
+  String? selectedDistrict;
+  List<String> districts = ['Mysore', 'Chamaraj Nagar', 'Mandya', 'Kodagu'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field District'), // Replace with actual implementation
+      child: DropdownButtonFormField<String>(
+        decoration: const InputDecoration(
+          labelText: 'Select District',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+        value: selectedDistrict,
+        items: districts.map((String district) {
+          return DropdownMenuItem<String>(
+            value: district,
+            child: Text(district),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedDistrict = newValue;
+          });
+        },
+      ),
     );
   }
 }
 
-class FieldCity extends StatelessWidget {
+
+class FieldCity extends StatefulWidget {
+  @override
+  _FieldCityState createState() => _FieldCityState();
+}
+
+class _FieldCityState extends State<FieldCity> {
+  String? selectedCity;
+  List<String> city = ['Ram Nagar', 'Bidadi', 'Banglore', 'Bannur'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field City'), // Replace with actual implementation
+      child: DropdownButtonFormField<String>(
+        decoration: const InputDecoration(
+          labelText: 'Select City',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+        value: selectedCity,
+        items: city.map((String city) {
+          return DropdownMenuItem<String>(
+            value: city,
+            child: Text(city),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedCity = newValue;
+          });
+        },
+      ),
     );
   }
 }
 
-class FieldState extends StatelessWidget {
+class FieldState extends StatefulWidget {
+  @override
+  _FieldStateState createState() => _FieldStateState();
+}
+
+class _FieldStateState extends State<FieldState> {
+  String? selectedState;
+  List<String> state = ['Karnataka', 'Goa', 'TamilNadu', 'Kerala'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field State'), // Replace with actual implementation
+      child: DropdownButtonFormField<String>(
+        decoration: const InputDecoration(
+          labelText: 'Select State',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+        value: selectedState,
+        items: state.map((String state) {
+          return DropdownMenuItem<String>(
+            value: state,
+            child: Text(state),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedState = newValue;
+          });
+        },
+      ),
     );
   }
 }
+
 
 class FieldPinCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Pin Code'), // Replace with actual implementation
+      child: const TextField(
+        decoration: InputDecoration(
+          labelText: 'Pin Code',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintStyle: TextStyle(color: Colors.blue),
+        ),
+        keyboardType: TextInputType.text,
+      ), // Replace with actual implementation
     );
   }
 }
+
 
 class FieldGSTIN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field GSTIN'), // Replace with actual implementation
+      child: const TextField(
+        decoration: InputDecoration(
+          labelText: 'GSTIN',
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintStyle: TextStyle(color: Colors.blue),
+        ),
+        keyboardType: TextInputType.text,
+      ), // Replace with actual implementation
     );
   }
 }
 
-class FieldTermsAndConditions extends StatelessWidget {
+class FieldTermsAndConditions extends StatefulWidget {
+  @override
+  _FieldTermsAndConditionsState createState() => _FieldTermsAndConditionsState();
+}
+
+class _FieldTermsAndConditionsState extends State<FieldTermsAndConditions> {
+  bool _isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Field Terms and Conditions'), // Replace with actual implementation
+      child: CheckboxListTile(
+        title: const Text('I agree to Terms & Conditions'),
+        value: _isChecked,
+        onChanged: (bool? value) {
+          setState(() {
+            _isChecked = value!;
+          });
+        },
+        controlAffinity: ListTileControlAffinity.leading,
+      ),
     );
   }
 }
 
-class FieldNewPassword extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text('Field New Password'), // Replace with actual implementation
-    );
-  }
-}
