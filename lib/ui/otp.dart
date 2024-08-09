@@ -31,14 +31,14 @@ class _OtpScreenState extends State<OtpScreen> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
                   keyboardType: TextInputType.number,
                   maxLength: 5,
                   decoration: InputDecoration(
                     labelText: 'Mobile Number',
-                    prefixIcon: const Icon(Icons.lock, color: Colors.blue),
+                    prefixIcon: Icon(Icons.lock, color: Colors.blue),
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
@@ -53,7 +53,8 @@ class _OtpScreenState extends State<OtpScreen> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Implement validation functionality
+                  // Navigate to password screen
+                  Navigator.pushNamed(context, '/password');
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(160, 50),

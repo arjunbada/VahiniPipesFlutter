@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vahini_flutter/ui/login.dart';
 import 'package:vahini_flutter/ui/forgot_password.dart';
 import 'package:vahini_flutter/ui/otp.dart';
+import 'package:vahini_flutter/ui/password.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,9 +19,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
+        '/': (context) => LoginScreen(),
         '/forgot_password': (context) => ForgotPasswordPage(),
         '/otp': (context) => OtpScreen(),
+        '/password': (context) => PasswordScreen(),
       },
     );
   }

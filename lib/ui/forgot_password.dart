@@ -52,7 +52,6 @@ class ForgotPasswordPage extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement send functionality
                 // Navigate to OTP screen
                 Navigator.pushNamed(context, '/otp');
               },

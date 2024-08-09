@@ -38,13 +38,13 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Implement submit functionality
+                  // Navigate to OTP screen
+                  Navigator.pushNamed(context, '/otp');
                 },
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white
-                ),
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white),
                 child: const Text('Submit'),
               ),
             ],
@@ -203,7 +203,6 @@ class _FieldDistrictState extends State<FieldDistrict> {
   }
 }
 
-
 class FieldCity extends StatefulWidget {
   @override
   _FieldCityState createState() => _FieldCityState();
@@ -284,7 +283,6 @@ class _FieldStateState extends State<FieldState> {
   }
 }
 
-
 class FieldPinCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -306,7 +304,6 @@ class FieldPinCode extends StatelessWidget {
     );
   }
 }
-
 
 class FieldGSTIN extends StatelessWidget {
   @override
@@ -332,7 +329,8 @@ class FieldGSTIN extends StatelessWidget {
 
 class FieldTermsAndConditions extends StatefulWidget {
   @override
-  _FieldTermsAndConditionsState createState() => _FieldTermsAndConditionsState();
+  _FieldTermsAndConditionsState createState() =>
+      _FieldTermsAndConditionsState();
 }
 
 class _FieldTermsAndConditionsState extends State<FieldTermsAndConditions> {
@@ -354,4 +352,3 @@ class _FieldTermsAndConditionsState extends State<FieldTermsAndConditions> {
     );
   }
 }
-

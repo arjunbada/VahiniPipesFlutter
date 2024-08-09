@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'register.dart';
 import 'package:vahini_flutter/utils/commonMethods.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginScreen> {
   TextEditingController _mobileNumberController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
